@@ -1,0 +1,52 @@
+body {
+    padding-top: 2vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.selector-container {
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    padding-top: 30px;
+}
+
+
+.bottom-panel {
+    width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#response-container {
+    font-size: 13px;
+    letter-spacing: 1px;
+    flex: 4;
+}
+#post-container {
+    font-size: 11px;
+    letter-spacing: 1px;
+    flex: 1;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+#heatmap-graph {
+    border: 1px dashed rgba(19, 112, 89, 0.5);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+svg rect.single-rect {
+    stroke-width: 0.1;
+    stroke: white;
+}
+
+rect.selection {
+    fill: rgb(255, 0, 212);
+    stroke: black;
+}

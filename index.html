@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <meta name="author" content="Thomas Elsgaard" />
+    <title>HeatMap d3.js v2</title>
+
+    <!-- Favicons -->
+    <link href="static/images/favicon.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link href="static/css/style.css" rel="stylesheet" />
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Local JS files -->
+    <script src="static/js/bin.js"></script>
+    <script src="static/js/heatmap.js"></script>
+  </head>
+
+  <body>
+    <div class="selector-container">
+      <label style="font-size: 10px" for="heatmap-selector">Time X:</label>
+      <select style="font-size: 10px" id="heatmap-selector" onChange="update()">
+        <option value="60">60 min</option>
+        <option value="30">30 min</option>
+        <option value="15">15 min</option>
+      </select>
+      <label style="font-size: 10px" for="binx-field"
+        >Bin X and Resolution (sec):</label
+      >
+      <input
+        style="width: 50px; font-size: 10px"
+        type="text"
+        id="binx-field"
+        value="30"
+        onChange="update()"
+      />
+      <label style="font-size: 10px" for="biny-field">Bin Y:</label>
+      <input
+        style="width: 50px; font-size: 10px"
+        type="text"
+        id="biny-field"
+        value="100"
+        onChange="update()"
+      />
+    </div>
+
+    <!-- Graph containers -->
+    <div id="heatmap-graph"></div>
+    <div class="bottom-panel">
+      <div id="response-container"></div>
+      <div id="post-container"></div>
+    </div>
+
+    <script type="text/javascript">
+      function update() {
+        var select = document.getElementById("heatmap-selector");
+        var option = select.options[select.selectedIndex];
+
+        var binX = document.getElementById("binx-field").value;
+        var binY = document.getElementById("biny-field").value;
+
+        displayGraphs(option.value, binX, binY);
+      }
+    </script>
+
+    <!-- Executes update function on load -->
+    <script>
+      window.onload = update;
+    </script>
+  </body>
+</html>
